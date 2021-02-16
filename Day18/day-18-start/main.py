@@ -1,16 +1,39 @@
-# This is a sample Python script.
+import random
+import turtle as t
+from turtle import *
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+franklin = t.Turtle()
+t.colormode(255)
+franklin.shape('turtle')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#demo
+#franklin.color('red', 'yellow')
+#franklin.begin_fill()
+#while True:
+#    franklin.forward(200)
+#    franklin.left(170)
+#    if abs(franklin.pos()) < 1:
+#        break
+#franklin.end_fill()
+
+# random turle walk
+colors = ['CornflowerBlue', 'DarkOrchid', 'IndianRed', 'DeepSkyBlue', 'LightSeaGreen', 'Wheat', 'SlateGray', 'SeaGreen']
+directions = [0, 90, 180, 270]
+franklin.pensize(14)
+franklin.speed(60)
+for a in range(400):
+    franklin.color(random_color())
+    franklin.forward(30)
+    franklin.setheading(random.choice(directions))
+
+
+screen = Screen()
+screen.exitonclick()
