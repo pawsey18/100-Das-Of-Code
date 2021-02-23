@@ -2,17 +2,20 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 import time
+from scoreboard import Scoreboard
 
 screen = Screen()
-
 
 screen.bgcolor('black')
 screen.setup(width=800, height=600)
 screen.title('Pong')
 screen.tracer(0)
+
+ball = Ball()
+score = Scoreboard()
+
 right_paddle = Paddle((350, 0))
 left_paddle = Paddle((-350, 0))
-ball = Ball()
 screen.listen()
 
 screen.onkey(right_paddle.go_up, 'Up')
@@ -23,12 +26,29 @@ screen.onkey(left_paddle.go_down, 's')
 
 is_game_on = True
 while is_game_on:
-    time.sleep(0.1)
+    time.sleep(ball.ball_speed)
     screen.update()
     ball.move()
 
     # detect collision with wall
     if ball.ycor() > 300 or ball.ycor() < -300:
-        ball.bounce()
+        ball.bounce_y()
+
+    # detect ball with paddle
+    if ball.distance(right_paddle) < 50 and ball.xcor() > 320 or ball.distance(left_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
+
+    # detect right paddle when misses
+    if ball.xcor() > 380:
+        ball.reset_position()
+        score.l_point()
+
+
+    # Detect left paddle when misses
+
+    if ball.xcor() < -380:
+        ball.reset_position()
+        score.r_point()
+
 
 screen.exitonclick()
