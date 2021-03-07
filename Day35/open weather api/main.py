@@ -7,7 +7,7 @@ weather_params = {
     'lat': 46.220196,
     'lon': -64.534683,
     'appid': api_key,
-    'exclude': 
+
 
 }
 
