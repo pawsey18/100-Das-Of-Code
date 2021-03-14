@@ -14,7 +14,7 @@ exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 sheet_endpoint = os.environ["YOUR_SHEET_ENDPOINT"]
 
 exercise_text = input("Tell me which exercises you did: ")
-
+#e
 headers = {
     "x-app-id": APP_ID,
     "x-app-key": API_KEY,
