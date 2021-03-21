@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 
-with open('website.html') as file:
-    contents = file.read()
+import requests
 
+response = requests.get('https://news.ycombinator.com/news')
+
+print(response.text)
 
