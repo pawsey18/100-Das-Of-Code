@@ -1,16 +1,14 @@
-# This is a sample Python script.
+def make_bold(function):
+    def wrapper():
+        return "<b>" + function() + "</b>"
+    return wrapper
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def make_emphasis(function):
+    def wrapper():
+        return "<em>" + function() + "</em>"
+    return wrapper
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def make_underlined(function):
+    def wrapper():
+        return "<u>" + function() + "</u>"
+    return wrapper
